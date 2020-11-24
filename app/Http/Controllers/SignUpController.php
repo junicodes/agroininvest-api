@@ -15,7 +15,6 @@ class SignUpController extends Controller
         
         $user = $createNewuser->create($data); // Use Laravel Fortify Boiler Plate to Store User
 
-        
         return response()->json([
             'status' => true, 
             'message' => 'User successfully created', 
