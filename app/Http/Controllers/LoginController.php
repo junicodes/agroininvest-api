@@ -17,7 +17,7 @@ class LoginController extends Controller
 
         Validator::make($input, [
             'email' => ['required', 'string', 'email', 'max:255'],
-            'password' => ['required', 'string', 'min:8']
+            'password' => ['required', 'string']
         ])->validate();
 
         $user = User::where('email', $input['email'])->first();
@@ -27,7 +27,8 @@ class LoginController extends Controller
         if(!$check) {
             return response()->json([
                 'status' => true, 
-                'message' => 'Login Fail: Your email or password is incorrect.'
+                'message' => 'Login Fail: Your email or password is incorrect.',
+                'hint' => 'Please check you email or password and try again!'
             ], 400);
         }
 

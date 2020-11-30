@@ -10,7 +10,7 @@ use App\Http\Controllers\FindInvestorController;
 
 
 Route::post('/sign-up', [SignUpController::class, 'store']);
-Route::post('/login', [LoginController::class, 'login']);
+Route::post('/sign-in', [LoginController::class, 'login']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
